@@ -6,13 +6,15 @@ function Header() {
   const { theme, toggleTheme } = useTheme();
   return (
     <header className={`header theme-${theme}`}>
-      <h1>Социальная сеть Крутые пацанчики</h1>
-      <p>Заходите все сюда тут клево классно</p>
+      <h1>Социальная сеть</h1>
+      <p>Общаться тут одно удовольствие</p>
       <nav>
         <Link to="/">Главная</Link>
         <Link to="/profile">Профиль</Link>
         <Link to="/settings">Настройки</Link>
         <Link to="/about">О проекте</Link>
+        <Link to="/weather">Погода</Link>
+        <Link to="/currency">Курс валют</Link>
         <button className="toggle" onClick={toggleTheme}>
                     {theme === "light" ? "🌙" : "🌞"}
                 </button>
