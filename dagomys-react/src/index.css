@@ -1,28 +1,38 @@
+/* =========================================
+   ПЕРЕМЕННЫЕ (СВЕТЛАЯ ТЕМА — GREEN CLEAN)
+   ========================================= */
 :root {
-  --ink: #254653;
-  --ink-soft: #486773;
-  --sky: #a8e5f4;
-  --paper: #fffef4;
-  --grass: #98d94f;
-  --grass-dark: #4b963f;
-  --sun: #ffdc61;
-  --coral: #ff8176;
+  --ink: #1f3b2c;
+  --ink-soft: #5a7a68;
+  --sky: #e8f5e9;
+  --paper: #ffffff;
+  --grass: #7ac143;
+  --grass-dark: #4e9a2f;
+  --sun: #ffd54f;
+  --coral: #ff6f61;
+
+  /* Новые токены для «чистого» стиля */
+  --bg-page: #f4faf4;
+  --border-soft: #e2efe2;
+  --shadow-sm: 0 4px 14px rgba(31, 59, 44, 0.06);
+  --shadow-md: 0 10px 30px rgba(31, 59, 44, 0.08);
+  --shadow-lg: 0 18px 45px rgba(31, 59, 44, 0.12);
+  --radius-lg: 20px;
+  --radius-md: 14px;
+  --radius-sm: 10px;
+  --accent-gradient: linear-gradient(135deg, #7ac143 0%, #4e9a2f 100%);
 }
 
 * {
-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-margin: 0;
-font-family: "Trebuchet MS", "Comic Sans MS", sans-serif;
-background-color: #c5eff8;
-background-image:
-  radial-gradient(rgba(255, 255, 255, 0.65) 1px, transparent 1px),
-  linear-gradient(180deg, #91dcf2 0%, #d2f2f7 58%, #e9f4cf 100%);
-background-size: 28px 28px, 100% 100%;
-background-attachment: fixed;
-color: var(--ink);
+  margin: 0;
+  font-family: "Poppins", "Segoe UI", "Trebuchet MS", sans-serif;
+  background: var(--bg-page);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
 }
 
 button {
@@ -37,440 +47,138 @@ button {
 }
 
 .app {
-min-height: 100vh;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--bg-page);
 }
 
+/* =========================================
+   ШАПКА
+   ========================================= */
 .header {
-padding: 30px;
-text-align: center;
-background: var(--grass);
-color: var(--ink);
-border-bottom: 4px solid var(--ink);
-box-shadow: 0 4px 0 rgba(37, 70, 83, 0.14);
+  width: 100%;
+  padding: 48px 24px 40px;
+  text-align: center;
+  background: var(--paper);
+  border-bottom: 1px solid var(--border-soft);
+  box-shadow: var(--shadow-sm);
 }
 
 .header h1 {
-margin: 0 0 8px;
-font-family: "Comic Sans MS", "Trebuchet MS", cursive;
-text-shadow: 2px 2px 0 rgba(255, 254, 244, 0.9);
+  margin: 0 0 12px;
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: var(--ink);
+  text-shadow: none;
 }
 
 .header p {
-margin: 0;
-color: var(--ink-soft);
-}
-
-main {
-display: flex;
-justify-content: center;
-padding: 50px 20px;
-}
-
-.profile-card {
-width: 100%;
-max-width: 600px;
-background: var(--paper);
-border: 3px solid var(--ink);
-border-radius: 16px;
-padding: 25px;
-box-shadow: 5px 5px 0 rgba(37, 70, 83, 0.22);
-}
-
-.profile {
-display: flex;
-align-items: center;
-gap: 15px;
-margin-bottom: 25px;
-padding-bottom: 20px;
-border-bottom: 2px dashed #a8cf72;
-}
-
-.avatar {
-width: 55px;
-height: 55px;
-border-radius: 50%;
-position: relative;
-border: 3px solid var(--ink);
-background: var(--sun);
-color: transparent;
-
-display: flex;
-align-items: center;
-justify-content: center;
-
-font-size: 0;
-font-weight: bold;
-}
-
-.profile h2 {
-margin: 0 0 5px;
-font-family: "Comic Sans MS", "Trebuchet MS", cursive;
-}
-
-.profile p {
-margin: 0;
-color: var(--grass-dark);
-}
-
-.post {
-background: #f6ffe8;
-border: 2px solid var(--ink);
-border-left: 7px solid var(--grass-dark);
-border-radius: 12px;
-padding: 20px;
-margin-bottom: 15px;
-box-shadow: 3px 3px 0 rgba(37, 70, 83, 0.18);
-transition: 0.2s;
-}
-
-.post:hover {
-box-shadow: 4px 5px 0 rgba(37, 70, 83, 0.24);
-}
-
-.post:last-child {
-  margin-bottom: 0;
-}
-
-.post h2 {
-margin-top: 0;
-color: var(--ink);
-font-family: "Comic Sans MS", "Trebuchet MS", cursive;
-}
-
-.post p {
-color: var(--ink-soft);
-line-height: 1.6;
-}
-
-.post-text{
-  margin: 0 0 10px;
-  color: var(--ink-soft);
-  line-height: 1.6;
-}
-
-.post-author {
   margin: 0;
-  color: #c65b50;
-  font-size: 14px;
-  font-weight: bold;
-}
-
-.post-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-left: auto;
-  width: 250px;
-}
-
-.post-form input,
-.post-form textarea {
-  border: 2px solid #8fb8bd;
-  border-radius: 8px;
-  padding: 10px;
-  font-family: inherit;
-  background: #fffef8;
-  color: var(--ink);
-  resize: none;
-}
-
-.post-form input:focus,
-.post-form textarea:focus {
-  outline: none;
-  border-color: var(--grass-dark);
-  box-shadow: 0 0 0 3px rgba(152, 217, 79, 0.28);
-}
-
-.post-form button:not(.delete-button):not(.delete-all-button) {
-  border: none;
-  background: var(--grass);
-  color: var(--ink);
-  padding: 10px 20px;
-  border-radius: 8px;
-  cursor: pointer;
+  color: var(--ink-soft);
   font-size: 16px;
-  font-weight: bold;
-  transition: 0.2s;
-  box-shadow: 0 3px 0 var(--grass-dark);
+  font-weight: 400;
 }
-
-.post-form button:not(.delete-button):not(.delete-all-button):hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 0 var(--grass-dark);
-}
-
-.actions {
-display: flex;
-gap: 10px;
-margin-top: 25px;
-}
-
-.actions button {
-border: none;
-background: var(--sun);
-padding: 12px 20px;
-border-radius: 8px;
-cursor: pointer;
-font-size: 16px;
-transition: 0.2s;
-color: var(--ink);
-font-weight: bold;
-box-shadow: 0 3px 0 #b58c28;
-}
-
-.actions button:hover {
-background: #ffe991;
-transform: translateY(-2px);
-box-shadow: 0 5px 0 #b58c28;
-}
-
-.delete-button {
-  border: none;
-  background: var(--coral);
-  color: var(--ink);
-  padding: 10px 16px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: bold;
-  margin-top: 10px;
-  transition: 0.2s;
-  box-shadow: 0 3px 0 #c65b50;
-}
-
-.delete-button:hover {
-  background: #ff9c91;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 0 #c65b50;
-}
-
-.delete-all-button {
-  border: none;
-  background: var(--coral);
-  color: var(--ink);
-  padding: 10px 16px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: bold;
-  margin-top: 10px;
-  transition: 0.2s;
-  box-shadow: 0 3px 0 #c65b50;
-}
-
-.delete-all-button:hover {
-  background: #ff9c91;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 0 #c65b50;
-}
-
-.page-card {
-  width: 100%;
-  max-width: 600px;
-  background: var(--paper);
-  border: 3px solid var(--ink);
-  border-radius: 16px;
-  padding: 25px;
-  box-shadow: 5px 5px 0 rgba(37, 70, 83, 0.22);
-  margin-bottom: 25px;
-}
-
-.page-title {
-  margin: 0 0 20px;
-  color: var(--ink);
-  font-size: 24px;
-  font-family: "Comic Sans MS", "Trebuchet MS", cursive;
-  padding-bottom: 10px;
-  border-bottom: 2px dashed #a8cf72;
-}
-
-.section-subtitle {
-  color: var(--ink);
-  margin: 20px 0 15px;
-  font-size: 20px;
-  font-family: "Comic Sans MS", "Trebuchet MS", cursive;
-}
-
-.feed {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.page-card .post-form {
-  width: 100%;
-  margin: 0 0 20px 0;
-}
-
 
 .header nav {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 12px;
-  margin-top: 20px;
+  margin-top: 28px;
   flex-wrap: wrap;
 }
 
 .header nav a {
   text-decoration: none;
   color: var(--ink);
-  font-weight: bold;
+  font-weight: 600;
   font-size: 15px;
-  padding: 8px 18px;
-  border-radius: 8px;
-  background: var(--paper);
-  box-shadow: 0 3px 0 var(--ink);
-  transition: all 0.2s ease;
+  padding: 10px 22px;
+  border-radius: 100px;
+  background: var(--bg-page);
+  border: 1px solid var(--border-soft);
+  transition: all 0.25s ease;
 }
 
 .header nav a:hover {
-  background: var(--sun);
-  color: var(--ink);
+  background: var(--accent-gradient);
+  color: #fff;
+  border-color: transparent;
   transform: translateY(-2px);
-  box-shadow: 0 5px 0 var(--ink);
+  box-shadow: 0 8px 20px rgba(122, 193, 67, 0.3);
 }
 
 .header nav a.active {
-  background: #fff4bc;
-  box-shadow: 0 3px 0 var(--ink);
+  background: var(--accent-gradient);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 6px 18px rgba(122, 193, 67, 0.28);
 }
 
-/* === ТЕМНАЯ ТЕМА === */
-
-.app {
+/* =========================================
+   ОСНОВНОЙ КОНТЕНТ
+   ========================================= */
+main {
+  display: flex;
+  justify-content: center;
   width: 100%;
+  padding: 56px 20px;
 }
 
-.app.theme-dark {
-  --ink: #e2f1f8;
-  --ink-soft: #9ec5d6;
-  --sky: #162a36;
-  --paper: #1e3545;
-  --grass: #2f5e3d;
-  --grass-dark: #74c365;
-  --sun: #e0b341;
-  --coral: #d96257;
-
-  background-color: #0f1e26;
-  background-image:
-    radial-gradient(rgba(255, 255, 255, 0.14) 1px, transparent 1px),
-    linear-gradient(180deg, #0d1b22 0%, #162a36 58%, #1a3026 100%);
-  background-size: 28px 28px, 100% 100%;
-  background-attachment: fixed;
-  color: var(--ink);
+.profile-card,
+.page-card,
+.currency-page,
+.weather {
+  width: 100%;
+  max-width: 640px;
+  background: var(--paper);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  box-shadow: var(--shadow-md);
+  margin-bottom: 28px;
+  transition: box-shadow 0.3s ease;
 }
 
-/* Шапка и навигация */
-.app.theme-dark .header {
-  border-bottom-color: #0b151b;
-  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.4);
+.profile-card:hover,
+.page-card:hover,
+.currency-page:hover,
+.weather:hover {
+  box-shadow: var(--shadow-lg);
 }
 
-.app.theme-dark .header h1 {
-  text-shadow: 2px 2px 0 rgba(11, 21, 27, 0.9);
+/* =========================================
+   ПРОФИЛЬ
+   ========================================= */
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 28px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border-soft);
 }
 
-.app.theme-dark .header nav a {
-  box-shadow: 0 3px 0 #0b151b;
-}
-
-.app.theme-dark .header nav a:hover {
-  color: #16262e;
-  box-shadow: 0 5px 0 #0b151b;
-}
-
-.app.theme-dark .header nav a.active {
-  background: #325369;
-  color: var(--sun);
-  box-shadow: 0 3px 0 #0b151b;
-}
-
-/* Карточки и разделители */
-.app.theme-dark .profile-card,
-.app.theme-dark .page-card {
-  border-color: #466d85;
-  box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.45);
-}
-
-.app.theme-dark .profile,
-.app.theme-dark .page-title {
-  border-bottom-color: #436e4f;
-}
-
-
-
-/* Посты */
-.app.theme-dark .post {
-  background: #162834;
-  border-color: #466d85;
-  border-left-color: var(--grass-dark);
-  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.4);
-}
-
-.app.theme-dark .post:hover {
-  box-shadow: 4px 5px 0 rgba(0, 0, 0, 0.55);
-}
-
-.app.theme-dark .post-author {
-  color: #ff9c91;
-}
-
-/* Форма и поля ввода */
-.app.theme-dark .post-form input,
-.app.theme-dark .post-form textarea {
-  background: #13232e;
-  border-color: #3b5c70;
-  color: var(--ink);
-}
-
-.app.theme-dark .post-form input::placeholder,
-.app.theme-dark .post-form textarea::placeholder {
-  color: #6c92a6;
-}
-
-.app.theme-dark .post-form input:focus,
-.app.theme-dark .post-form textarea:focus {
-  border-color: var(--grass-dark);
-  box-shadow: 0 0 0 3px rgba(116, 195, 101, 0.25);
-}
-
-/* Кнопки */
-.app.theme-dark .post-form button:not(.delete-button):not(.delete-all-button) {
-  background: #4b963f;
-  color: #fffef4;
-  box-shadow: 0 3px 0 #265220;
-}
-
-.app.theme-dark .post-form button:not(.delete-button):not(.delete-all-button):hover {
-  box-shadow: 0 5px 0 #265220;
-}
-
-.app.theme-dark .actions button {
-  color: #16262e;
-  box-shadow: 0 3px 0 #8f6b14;
-}
-
-.app.theme-dark .actions button:hover {
-  background: #f2c955;
-  box-shadow: 0 5px 0 #8f6b14;
-}
-
-.app.theme-dark .delete-button,
-.app.theme-dark .delete-all-button {
-  color: #16262e;
-  box-shadow: 0 3px 0 #8c352d;
-}
-
-.app.theme-dark .delete-button:hover,
-.app.theme-dark .delete-all-button:hover {
-  background: #ff8176;
-  box-shadow: 0 5px 0 #8c352d;
-}
-
-/* Стили для реального фото внутри аватара */
 .avatar {
-  overflow: hidden; /* чтобы круглая форма обрезала углы фото */
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  position: relative;
+  border: 3px solid #fff;
+  background: var(--accent-gradient);
+  color: transparent;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0;
+  font-weight: bold;
+  box-shadow: 0 6px 18px rgba(122, 193, 67, 0.3);
 }
 
 .avatar-image {
@@ -480,8 +188,546 @@ box-shadow: 0 5px 0 #b58c28;
   display: block;
 }
 
-/* Скрываем CSS-глазки и улыбку, если загружено реальное фото */
 .avatar.has-image::before,
 .avatar.has-image::after {
   display: none;
+}
+
+.profile h2 {
+  margin: 0 0 4px;
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.profile p {
+  margin: 0;
+  color: var(--grass-dark);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* =========================================
+   ПОСТЫ
+   ========================================= */
+.post {
+  background: var(--bg-page);
+  border: 1px solid var(--border-soft);
+  border-left: 4px solid var(--grass);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.post:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.post:last-child {
+  margin-bottom: 0;
+}
+
+.post h2 {
+  margin-top: 0;
+  color: var(--ink);
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.post p,
+.post-text {
+  margin: 0 0 10px;
+  color: var(--ink-soft);
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+.post-author {
+  margin: 0;
+  color: var(--grass-dark);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* =========================================
+   ФОРМЫ
+   ========================================= */
+.post-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-left: auto;
+  width: 260px;
+}
+
+.page-card .post-form {
+  width: 100%;
+  margin: 0 0 24px 0;
+}
+
+.post-form input,
+.post-form textarea,
+.weather input[type="text"] {
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  font-family: inherit;
+  font-size: 15px;
+  background: var(--bg-page);
+  color: var(--ink);
+  resize: none;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.post-form input::placeholder,
+.post-form textarea::placeholder,
+.weather input[type="text"]::placeholder {
+  color: #9cb3a6;
+}
+
+.post-form input:focus,
+.post-form textarea:focus,
+.weather input[type="text"]:focus {
+  outline: none;
+  background: #fff;
+  border-color: var(--grass);
+  box-shadow: 0 0 0 4px rgba(122, 193, 67, 0.18);
+}
+
+/* =========================================
+   КНОПКИ
+   ========================================= */
+.post-form button:not(.delete-button):not(.delete-all-button),
+.weather button {
+  border: none;
+  background: var(--accent-gradient);
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 100px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 6px 16px rgba(122, 193, 67, 0.32);
+}
+
+.post-form button:not(.delete-button):not(.delete-all-button):hover,
+.weather button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(122, 193, 67, 0.42);
+}
+
+.weather button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+
+.actions button {
+  border: 1px solid var(--border-soft);
+  background: var(--paper);
+  padding: 12px 22px;
+  border-radius: 100px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: all 0.2s ease;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.actions button:hover {
+  background: var(--sun);
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 213, 79, 0.35);
+}
+
+.delete-button,
+.delete-all-button {
+  border: 1px solid rgba(255, 111, 97, 0.25);
+  background: rgba(255, 111, 97, 0.1);
+  color: #d84a3d;
+  padding: 10px 18px;
+  border-radius: 100px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 12px;
+  transition: all 0.2s ease;
+}
+
+.delete-button:hover,
+.delete-all-button:hover {
+  background: var(--coral);
+  color: #fff;
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 111, 97, 0.35);
+}
+
+/* =========================================
+   ЗАГОЛОВКИ СТРАНИЦ
+   ========================================= */
+.page-title {
+  margin: 0 0 24px;
+  color: var(--ink);
+  font-size: 26px;
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  font-weight: 700;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.section-subtitle {
+  color: var(--ink);
+  margin: 24px 0 16px;
+  font-size: 20px;
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  font-weight: 700;
+}
+
+.feed {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* =========================================
+   СТРАНИЦА КУРСА ВАЛЮТ
+   ========================================= */
+.currency-page h2 {
+  margin: 0 0 18px;
+  color: var(--ink);
+  font-size: 26px;
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  font-weight: 700;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.currency-page p {
+  color: var(--ink-soft);
+  margin: 0 0 16px;
+  font-weight: 500;
+}
+
+.currency-page .error {
+  color: var(--coral);
+  font-weight: 600;
+}
+
+.currency-page table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--paper);
+  box-shadow: var(--shadow-sm);
+}
+
+.currency-page th,
+.currency-page td {
+  padding: 14px 18px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.currency-page th {
+  background: var(--bg-page);
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.currency-page tr:last-child td {
+  border-bottom: none;
+}
+
+.currency-page tbody tr {
+  transition: background 0.2s ease;
+}
+
+.currency-page tbody tr:hover {
+  background: #f0f9f0;
+}
+
+.currency-page td:first-child {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.currency-page td:not(:first-child) {
+  color: var(--ink-soft);
+  font-family: "SF Mono", "Consolas", monospace;
+  font-size: 14px;
+}
+
+/* =========================================
+   СТРАНИЦА ПОГОДЫ
+   ========================================= */
+.weather h2 {
+  margin: 0 0 22px;
+  color: var(--ink);
+  font-size: 26px;
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  font-weight: 700;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.weather form {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.weather input[type="text"] {
+  flex: 1;
+}
+
+.weather__error {
+  margin: 10px 0 0;
+  color: var(--coral) !important;
+  font-weight: 600;
+}
+
+.weather__info {
+  background: var(--bg-page);
+  border: 1px solid var(--border-soft);
+  border-left: 4px solid var(--grass);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.weather__info h3 {
+  margin: 0 0 8px;
+  color: var(--ink);
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.weather__info p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 15px;
+}
+
+.weather__info strong {
+  color: var(--ink);
+}
+
+/* =========================================
+   ТЁМНАЯ ТЕМА
+   ========================================= */
+.app.theme-dark {
+  --ink: #e8f3ec;
+  --ink-soft: #9bb8a8;
+  --paper: #1a2b22;
+  --bg-page: #0f1a15;
+  --border-soft: #2a4034;
+  --grass: #7ac143;
+  --grass-dark: #8fd45a;
+  --sun: #e0b341;
+  --coral: #ff6f61;
+  --accent-gradient: linear-gradient(135deg, #5aa82f 0%, #7ac143 100%);
+
+  background: var(--bg-page);
+  color: var(--ink);
+}
+
+.app.theme-dark .header {
+  background: var(--paper);
+  border-bottom-color: var(--border-soft);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+}
+
+.app.theme-dark .header h1 {
+  text-shadow: none;
+  color: var(--ink);
+}
+
+.app.theme-dark .header nav a {
+  background: var(--bg-page);
+  border-color: var(--border-soft);
+  color: var(--ink);
+  box-shadow: none;
+}
+
+.app.theme-dark .header nav a:hover,
+.app.theme-dark .header nav a.active {
+  background: var(--accent-gradient);
+  color: #fff;
+  border-color: transparent;
+}
+
+.app.theme-dark .profile-card,
+.app.theme-dark .page-card,
+.app.theme-dark .currency-page,
+.app.theme-dark .weather {
+  background: var(--paper);
+  border-color: var(--border-soft);
+  box-shadow: var(--shadow-md);
+}
+
+.app.theme-dark .profile,
+.app.theme-dark .page-title,
+.app.theme-dark .currency-page h2,
+.app.theme-dark .weather h2 {
+  border-bottom-color: var(--border-soft);
+}
+
+.app.theme-dark .post,
+.app.theme-dark .weather__info {
+  background: #16261d;
+  border-color: var(--border-soft);
+  border-left-color: var(--grass);
+  box-shadow: var(--shadow-sm);
+}
+
+.app.theme-dark .post:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.app.theme-dark .post-author {
+  color: var(--grass-dark);
+}
+
+.app.theme-dark .post-form input,
+.app.theme-dark .post-form textarea,
+.app.theme-dark .weather input[type="text"] {
+  background: #122018;
+  border-color: var(--border-soft);
+  color: var(--ink);
+}
+
+.app.theme-dark .post-form input::placeholder,
+.app.theme-dark .post-form textarea::placeholder,
+.app.theme-dark .weather input[type="text"]::placeholder {
+  color: #6c8a7a;
+}
+
+.app.theme-dark .post-form input:focus,
+.app.theme-dark .post-form textarea:focus,
+.app.theme-dark .weather input[type="text"]:focus {
+  background: #16261d;
+  border-color: var(--grass);
+  box-shadow: 0 0 0 4px rgba(122, 193, 67, 0.18);
+}
+
+.app.theme-dark .post-form button:not(.delete-button):not(.delete-all-button),
+.app.theme-dark .weather button {
+  background: var(--accent-gradient);
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(122, 193, 67, 0.25);
+}
+
+.app.theme-dark .post-form button:not(.delete-button):not(.delete-all-button):hover,
+.app.theme-dark .weather button:hover:not(:disabled) {
+  box-shadow: 0 10px 24px rgba(122, 193, 67, 0.35);
+}
+
+.app.theme-dark .actions button {
+  background: var(--paper);
+  border-color: var(--border-soft);
+  color: var(--ink);
+}
+
+.app.theme-dark .actions button:hover {
+  background: var(--sun);
+  color: #16262e;
+  border-color: transparent;
+}
+
+.app.theme-dark .delete-button,
+.app.theme-dark .delete-all-button {
+  background: rgba(255, 111, 97, 0.12);
+  border-color: rgba(255, 111, 97, 0.28);
+  color: #ff8f84;
+  box-shadow: none;
+}
+
+.app.theme-dark .delete-button:hover,
+.app.theme-dark .delete-all-button:hover {
+  background: var(--coral);
+  color: #fff;
+  border-color: transparent;
+}
+
+.app.theme-dark .currency-page table {
+  background: var(--paper);
+  border-color: var(--border-soft);
+  box-shadow: var(--shadow-sm);
+}
+
+.app.theme-dark .currency-page th {
+  background: #16261d;
+  color: var(--ink);
+  border-bottom-color: var(--border-soft);
+}
+
+.app.theme-dark .currency-page td {
+  border-bottom-color: var(--border-soft);
+}
+
+.app.theme-dark .currency-page tbody tr:hover {
+  background: #1e3328;
+}
+
+/* =========================================
+   АДАПТИВНОСТЬ
+   ========================================= */
+@media (max-width: 640px) {
+  .header {
+    padding: 36px 18px 30px;
+  }
+
+  .header h1 {
+    font-size: 28px;
+  }
+
+  main {
+    padding: 36px 14px;
+  }
+
+  .profile-card,
+  .page-card,
+  .currency-page,
+  .weather {
+    padding: 22px;
+    border-radius: var(--radius-md);
+  }
+
+  .post-form {
+    width: 100%;
+  }
+
+  .weather form {
+    flex-direction: column;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
 }
